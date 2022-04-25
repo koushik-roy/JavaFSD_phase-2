@@ -7,20 +7,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Students</title>
+<link type="text/css" rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<h2>Students</h2>
+<h2 style="text-align: center; margin-top: 2em;">Students</h2>
 
 <%Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/school_database", "root", "root");
 	Statement st=con.createStatement();
 	ResultSet rs=st.executeQuery("select * from student_list");
 %>
-	<table border="1">
+	<table border="1" class="table">
 		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Age</td>
-			<td>Class</td>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Age</th>
+			<th>Class</th>
 		</tr>
 		<% while (rs.next()){ %>
 		<tr>

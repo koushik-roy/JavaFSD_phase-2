@@ -3,14 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.util.*" %>
 <%@page import="java.sql.*" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Students</title>
+<title>Students of class 3</title>
+
 </head>
 <body>
+	<h3 style="text-align: center; margin-top: 2em;">Students of Class 3:</h3>
 	<%Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/school_database", "root", "root");
 	Statement st=con.createStatement();
 	ResultSet rs=st.executeQuery("select first_name , last_name from student_list where class=3");
@@ -26,10 +27,13 @@
 		}
 		pageContext.setAttribute("names", names);
 	%>
-	<ul>		
+	<table	border="1" style="width: 50%; margin: auto; padding: 10px">
+		<tr><th>Names</th></tr>
+				
 			<c:forEach var="name" items="${names}">
-			<li>${name}</li>
+			<tr><td>${name}</td></tr>
 			</c:forEach>
-	</ul>
+		
+	</table>
 </body>
 </html>
